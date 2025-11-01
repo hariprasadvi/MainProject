@@ -1,0 +1,116 @@
+.reports-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-in;
+
+  h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    &::before {
+      content: '📈';
+      margin-right: 15px;
+    }
+  }
+}
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+mat-card {
+  border-radius: 20px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95) !important;
+  transition: all 0.3s ease;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  &:nth-child(1) mat-card-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+  }
+  
+  &:nth-child(2) mat-card-header {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+  }
+  
+  &:nth-child(3) mat-card-header {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+  }
+  
+  &:nth-child(4) mat-card-header {
+    background: linear-gradient(135deg, #6f42c1, #5a2d91);
+  }
+  
+  mat-card-header {
+    color: white;
+    padding: 1.5rem;
+    border-radius: 20px 20px 0 0;
+    
+    mat-card-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      
+      mat-icon {
+        margin-right: 10px;
+        font-size: 1.8rem;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+  
+  mat-card-content {
+    padding: 1.5rem !important;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    p {
+      color: #6c757d;
+      text-align: center;
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+  
+  mat-card-actions {
+    padding: 0 1.5rem 1.5rem !important;
+    display: flex;
+    justify-content: center;
+    
+    button {
+      border-radius: 20px;
+      padding: 8px 24px;
+      background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+      color: white;
+      border: none;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(44, 85, 48, 0.3);
+      }
+    }
+  }
+}

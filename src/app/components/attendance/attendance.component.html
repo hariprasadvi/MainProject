@@ -1,0 +1,51 @@
+<div class="attendance-container">
+  <h2>Attendance System</h2>
+  
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Mark Your Attendance</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      @if (isScanning) {
+        <div class="scanning-area">
+          <div class="face-scanner">
+            <div class="scanner-animation"></div>
+            <p>Scanning Face...</p>
+            <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
+          </div>
+          <div class="location-info">
+            <p>Getting location...</p>
+          </div>
+        </div>
+      } @else {
+        <div class="attendance-controls">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            (click)="markAttendance()"
+            class="mark-attendance-btn">
+            Mark Attendance
+          </button>
+        </div>
+      }
+
+      @if (attendanceStatus) {
+        <div 
+          class="status-message"
+          [class.success]="attendanceStatus.includes('successfully')"
+          [class.error]="attendanceStatus.includes('Error')">
+          {{ attendanceStatus }}
+        </div>
+      }
+
+      @if (currentLocation) {
+        <div class="location-display">
+          <h4>Location Details:</h4>
+          <p>Latitude: {{ currentLocation.latitude }}</p>
+          <p>Longitude: {{ currentLocation.longitude }}</p>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

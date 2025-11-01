@@ -1,0 +1,339 @@
+.meeting-minutes-container {
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-in;
+
+  h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    &::before {
+      content: '🎙️';
+      margin-right: 15px;
+    }
+  }
+}
+
+mat-card {
+  border-radius: 20px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95) !important;
+  margin-bottom: 2rem;
+  
+  mat-card-header {
+    background: linear-gradient(135deg, #4a7c59 0%, #8fb996 100%);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 20px 20px 0 0;
+    
+    mat-card-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      
+      &::before {
+        content: '📝';
+        margin-right: 12px;
+        font-size: 1.8rem;
+      }
+    }
+  }
+  
+  mat-card-content {
+    padding: 2rem !important;
+  }
+}
+
+// Enhanced select field
+mat-form-field {
+  margin-bottom: 1.5rem;
+
+  .mat-mdc-form-field-flex {
+    background: white;
+    border-radius: 12px;
+    padding: 0 16px;
+    transition: all 0.3s ease;
+  }
+  
+  &.mat-form-field-appearance-outline {
+    .mat-mdc-form-field-outline {
+      color: rgba(44, 85, 48, 0.2);
+    }
+    
+    &.mat-focused .mat-mdc-form-field-outline-thick {
+      color: #2c5530;
+    }
+    
+    &:hover .mat-mdc-form-field-outline {
+      color: rgba(44, 85, 48, 0.4);
+    }
+  }
+}
+
+// Meeting details section
+.meeting-details {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  border-left: 4px solid #4a7c59;
+
+  h3 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '📋';
+      margin-right: 8px;
+    }
+  }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+
+    .detail-item {
+      padding: 0.75rem;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #e9ecef;
+
+      &.full-width {
+        grid-column: 1 / -1;
+      }
+
+      strong {
+        color: #2c5530;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.recording-controls {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  
+  button {
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 180px;
+    justify-content: center;
+    
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    &.record-btn[color='warn'] {
+      background: linear-gradient(135deg, #dc3545, #c82333);
+      color: white;
+      
+      &.recording {
+        animation: pulse 1.5s infinite;
+        box-shadow: 0 0 20px rgba(220, 53, 69, 0.5);
+      }
+    }
+    
+    &.generate-btn[color='primary'] {
+      background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+      color: white;
+    }
+    
+    &.clear-btn {
+      border: 2px solid #6c757d;
+      color: #6c757d;
+      background: transparent;
+
+      &:hover {
+        background: #6c757d;
+        color: white;
+      }
+    }
+    
+    &:disabled {
+      background: #6c757d !important;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      opacity: 0.6;
+    }
+
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.recording-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+  border: 1px solid #ffeaa7;
+  border-radius: 10px;
+  margin: 1rem 0;
+  color: #856404;
+  font-weight: 500;
+
+  mat-progress-spinner {
+    ::ng-deep circle {
+      stroke: #856404 !important;
+    }
+  }
+}
+
+.results-section {
+  margin-top: 2rem;
+  animation: slideUp 0.6s ease-out;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  h3 {
+    color: #2c5530;
+    margin: 0;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      margin-right: 10px;
+    }
+  }
+
+  button {
+    color: #2c5530;
+  }
+}
+
+.transcript-box, .summary-box {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin: 1rem 0 2rem 0;
+  white-space: pre-wrap;
+  line-height: 1.7;
+  border-left: 4px solid #2c5530;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  max-height: 400px;
+  overflow-y: auto;
+  
+  &:hover {
+    transform: translateX(5px);
+  }
+}
+
+.summary-box {
+  border-left-color: #28a745;
+  background: linear-gradient(135deg, #d4edda, #f8f9fa);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+
+  button {
+    border-radius: 20px;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.no-meetings {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #6c757d;
+
+  mat-icon {
+    font-size: 4rem;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  h3 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  button {
+    border-radius: 25px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .recording-controls {
+    flex-direction: column;
+    
+    button {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    
+    button {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.full-width {
+  width: 100%;
+}

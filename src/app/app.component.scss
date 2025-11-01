@@ -1,0 +1,93 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+mat-toolbar {
+  background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #8fb996;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  button[mat-button] {
+    margin: 0 8px;
+    border-radius: 25px;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    &:hover::before {
+      left: 100%;
+    }
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    &.active-link {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    mat-icon {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+  }
+}
+
+.main-content {
+  padding: 2rem;
+  min-height: calc(100vh - 64px);
+  background: transparent;
+}
+
+// User menu styling
+.mat-mdc-menu-panel {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  .mat-mdc-menu-item {
+    border-radius: 8px;
+    margin: 4px 8px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      transform: translateX(5px);
+    }
+    
+    mat-icon {
+      color: #2c5530;
+    }
+  }
+}

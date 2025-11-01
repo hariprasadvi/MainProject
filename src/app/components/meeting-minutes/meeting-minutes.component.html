@@ -1,0 +1,134 @@
+<div class="meeting-minutes-container">
+  <h2>Meeting Minutes Generator</h2>
+  
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Record Meeting</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <!-- Fixed Select Field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Select Meeting</mat-label>
+        <mat-select [(value)]="selectedMeeting" (selectionChange)="onMeetingSelect()">
+          <mat-option value="">-- Select a meeting --</mat-option>
+          @for (meeting of meetings; track meeting.id) {
+            <mat-option [value]="meeting.id">
+              {{ meeting.title }} - {{ meeting.date | date:'mediumDate' }}
+            </mat-option>
+          }
+        </mat-select>
+        @if (!selectedMeeting) {
+          <mat-hint>Choose a meeting to record or generate minutes</mat-hint>
+        }
+      </mat-form-field>
+
+      <!-- Meeting Details (shown when meeting is selected) -->
+      @if (selectedMeeting && selectedMeetingDetails) {
+        <div class="meeting-details">
+          <h3>Meeting Details</h3>
+          <div class="details-grid">
+            <div class="detail-item">
+              <strong>Title:</strong> {{ selectedMeetingDetails.title }}
+            </div>
+            <div class="detail-item">
+              <strong>Date:</strong> {{ selectedMeetingDetails.date | date:'fullDate' }}
+            </div>
+            <div class="detail-item">
+              <strong>Location:</strong> {{ selectedMeetingDetails.location }}
+            </div>
+            @if (selectedMeetingDetails.description) {
+              <div class="detail-item full-width">
+                <strong>Description:</strong> {{ selectedMeetingDetails.description }}
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      <div class="recording-controls">
+        <button 
+          mat-raised-button 
+          color="warn" 
+          (click)="isRecording ? stopRecording() : startRecording()"
+          [disabled]="!selectedMeeting"
+          [class.recording]="isRecording"
+          class="record-btn">
+          <mat-icon>{{ isRecording ? 'stop' : 'fiber_manual_record' }}</mat-icon>
+          {{ isRecording ? 'Stop Recording' : 'Start Recording' }}
+        </button>
+        
+        <button 
+          mat-raised-button 
+          color="primary" 
+          (click)="generateSummary()"
+          [disabled]="!selectedMeeting"
+          class="generate-btn">
+          <mat-icon>summarize</mat-icon>
+          Generate Minutes
+        </button>
+
+        <button 
+          mat-stroked-button 
+          color="basic"
+          (click)="clearSelection()"
+          class="clear-btn">
+          <mat-icon>clear</mat-icon>
+          Clear
+        </button>
+      </div>
+
+      <!-- Recording Status -->
+      @if (isRecording) {
+        <div class="recording-status">
+          <mat-progress-spinner diameter="30" mode="indeterminate"></mat-progress-spinner>
+          <span>Recording in progress... {{ recordingTime }}s</span>
+        </div>
+      }
+
+      @if (transcript) {
+        <div class="results-section">
+          <div class="section-header">
+            <h3>Meeting Transcript</h3>
+            <button mat-icon-button (click)="copyToClipboard(transcript)" matTooltip="Copy transcript">
+              <mat-icon>content_copy</mat-icon>
+            </button>
+          </div>
+          <div class="transcript-box">{{ transcript }}</div>
+          
+          <div class="section-header">
+            <h3>Meeting Summary</h3>
+            <button mat-icon-button (click)="copyToClipboard(summary)" matTooltip="Copy summary">
+              <mat-icon>content_copy</mat-icon>
+            </button>
+          </div>
+          <div class="summary-box">{{ summary }}</div>
+
+          <div class="action-buttons">
+            <button mat-stroked-button color="primary" (click)="downloadTranscript()">
+              <mat-icon>download</mat-icon>
+              Download Transcript
+            </button>
+            <button mat-stroked-button color="primary" (click)="downloadSummary()">
+              <mat-icon>download</mat-icon>
+              Download Summary
+            </button>
+          </div>
+        </div>
+      }
+
+      <!-- Sample meetings if empty -->
+      @if (meetings.length === 0) {
+        <div class="no-meetings">
+          <mat-icon>event_busy</mat-icon>
+          <h3>No Meetings Available</h3>
+          <p>Schedule meetings first to use the minutes generator</p>
+          <button mat-raised-button color="primary" routerLink="/meetings">
+            <mat-icon>add</mat-icon>
+            Schedule a Meeting
+          </button>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

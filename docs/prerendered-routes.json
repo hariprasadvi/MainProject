@@ -1,0 +1,10 @@
+{
+  "routes": {
+    "/": {},
+    "/attendance": {},
+    "/loans": {},
+    "/meeting-minutes": {},
+    "/meetings": {},
+    "/reports": {}
+  }
+}
