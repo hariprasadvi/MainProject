@@ -1,10 +1,10 @@
 {
   "routes": {
-    "/": {},
-    "/attendance": {},
-    "/loans": {},
-    "/meeting-minutes": {},
-    "/meetings": {},
-    "/reports": {}
+    "/MainProject": {},
+    "/MainProject/attendance": {},
+    "/MainProject/loans": {},
+    "/MainProject/meeting-minutes": {},
+    "/MainProject/meetings": {},
+    "/MainProject/reports": {}
   }
 }
