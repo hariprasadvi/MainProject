@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/MainProject',
+  basePath: 'https://hariprasadvi.github.io/MainProject',
   supportedLocales: {
   "en-US": ""
 },
