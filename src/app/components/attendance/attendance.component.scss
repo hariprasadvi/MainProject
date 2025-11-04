@@ -5,37 +5,40 @@
 
   h2 {
     text-align: center;
-    color: white;
+    color: #1976d2;
     margin-bottom: 2rem;
-    font-size: 2.5rem;
-    font-weight: 300;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 2.2rem;
+    font-weight: 600;
+    
+    &::before {
+      content: '👤';
+      margin-right: 12px;
+    }
   }
 }
 
 mat-card {
-  border-radius: 20px !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e0e0e0;
+  background: #ffffff !important;
   overflow: hidden;
   
   mat-card-header {
-    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
-    color: white;
+    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+    color: #ffffff;
     padding: 1.5rem 2rem;
     
     mat-card-title {
-      font-size: 1.5rem;
-      font-weight: 500;
+      font-size: 1.4rem;
+      font-weight: 600;
       display: flex;
       align-items: center;
       
       &::before {
         content: '👤';
-        margin-right: 12px;
-        font-size: 1.8rem;
+        margin-right: 10px;
+        font-size: 1.6rem;
       }
     }
   }
@@ -54,7 +57,7 @@ mat-card {
     
     p {
       font-size: 1.1rem;
-      color: #2c5530;
+      color: #1976d2;
       margin: 1rem 0;
       font-weight: 500;
     }
@@ -66,14 +69,14 @@ mat-card {
 }
 
 .scanner-animation {
-  width: 250px;
-  height: 250px;
-  border: 3px solid #2c5530;
+  width: 200px;
+  height: 200px;
+  border: 3px solid #1976d2;
   border-radius: 50%;
   position: relative;
   overflow: hidden;
   margin: 0 auto 2rem;
-  background: conic-gradient(from 0deg, #8fb996, #4a7c59, #2c5530, #8fb996);
+  background: conic-gradient(from 0deg, #e3f2fd, #42a5f5, #1976d2, #e3f2fd);
   animation: rotate 3s linear infinite;
   
   &::before {
@@ -83,7 +86,7 @@ mat-card {
     left: 10px;
     right: 10px;
     bottom: 10px;
-    background: white;
+    background: #ffffff;
     border-radius: 50%;
     z-index: 1;
   }
@@ -94,7 +97,7 @@ mat-card {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3rem;
+    font-size: 2.5rem;
     z-index: 2;
   }
 }
@@ -104,17 +107,18 @@ mat-card {
   padding: 2rem;
   
   .mark-attendance-btn {
-    padding: 16px 40px;
+    padding: 14px 36px;
     font-size: 1.1rem;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
-    color: white;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+    color: #ffffff;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
     position: relative;
     overflow: hidden;
+    font-weight: 600;
     
     &::before {
       content: '';
@@ -123,7 +127,7 @@ mat-card {
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       transition: left 0.5s;
     }
     
@@ -132,49 +136,49 @@ mat-card {
     }
     
     &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(44, 85, 48, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
     }
     
     &:active {
-      transform: translateY(-1px);
+      transform: translateY(0);
     }
   }
 }
 
 .status-message {
   text-align: center;
-  margin: 2rem 0;
-  padding: 1rem 2rem;
-  border-radius: 15px;
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
   font-weight: 600;
-  font-size: 1.1rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   
   &.success {
-    background: linear-gradient(135deg, #d4edda, #c3e6cb);
-    color: #28a745;
-    border: 2px solid #c3e6cb;
+    background: rgba(76, 175, 80, 0.1);
+    color: #388e3c;
+    border: 1px solid rgba(76, 175, 80, 0.3);
   }
   
   &.error {
-    background: linear-gradient(135deg, #f8d7da, #f5c6cb);
-    color: #dc3545;
-    border: 2px solid #f5c6cb;
+    background: rgba(244, 67, 54, 0.1);
+    color: #d32f2f;
+    border: 1px solid rgba(244, 67, 54, 0.3);
   }
 }
 
 .location-display {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 1.5rem;
-  border-radius: 15px;
-  margin-top: 2rem;
-  border-left: 5px solid #2c5530;
+  background: #e3f2fd;
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  border-left: 4px solid #1976d2;
   
   h4 {
-    margin: 0 0 1rem 0;
-    color: #2c5530;
-    font-size: 1.2rem;
+    margin: 0 0 0.75rem 0;
+    color: #1976d2;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     
@@ -185,13 +189,34 @@ mat-card {
   }
   
   p {
-    margin: 0.5rem 0;
+    margin: 0.25rem 0;
     font-family: 'Courier New', monospace;
-    font-size: 1rem;
-    color: #1a1a1a;
-    background: white;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid #e9ecef;
+    font-size: 0.9rem;
+    color: #212121;
+    background: #ffffff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
   }
+}
+
+.payment-processing {
+  text-align: center;
+  padding: 30px;
+}
+
+.fee-info {
+  background: #e8f5e8;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border-left: 4px solid #4caf50;
+}
+
+.fee-info p {
+  margin: 5px 0;
+}
+
+.fee-info strong {
+  color: #2e7d32;
 }

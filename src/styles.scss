@@ -2,27 +2,34 @@
 @use '@angular/material' as mat;
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-// Custom color palette
-$primary-color: #2c5530;
-$secondary-color: #4a7c59;
-$accent-color: #8fb996;
-$light-color: #f8f9fa;
-$dark-color: #1a1a1a;
-$success-color: #28a745;
-$warning-color: #ffc107;
-$danger-color: #dc3545;
-$info-color: #17a2b8;
+// Classic Blue & White Color Palette
+$primary-blue: #1976d2;
+$secondary-blue: #42a5f5;
+$dark-blue: #1565c0;
+$light-blue: #e3f2fd;
+$accent-blue: #2196f3;
+$white: #ffffff;
+$light-gray: #f5f5f5;
+$medium-gray: #e0e0e0;
+$dark-gray: #424242;
+$text-dark: #212121;
+$text-light: #757575;
 
-// Darkened colors using modern Sass
-$primary-dark: #1e3a24;
-$warning-dark: #b38700;
-$success-dark: #1e7e34;
-$danger-dark: #a71e2a;
+// Status colors
+$success-color: #4caf50;
+$warning-color: #ff9800;
+$danger-color: #f44336;
+$info-color: #2196f3;
+
+// Darkened colors (pre-calculated to avoid deprecated functions)
+$warning-dark: #b36b00;
+$success-dark: #388e3c;
+$danger-dark: #d32f2f;
 
 // Gradient backgrounds
-$gradient-primary: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
-$gradient-secondary: linear-gradient(135deg, $secondary-color 0%, $accent-color 100%);
-$gradient-light: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+$gradient-primary: linear-gradient(135deg, $primary-blue 0%, $secondary-blue 100%);
+$gradient-light: linear-gradient(135deg, $white 0%, $light-blue 100%);
+$gradient-card: linear-gradient(135deg, $white 0%, #f8f9fa 100%);
 
 // Animation mixins
 @mixin fadeIn {
@@ -85,9 +92,8 @@ html, body {
 }
 
 body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  background-attachment: fixed;
-  color: $dark-color;
+  background: $white;
+  color: $text-dark;
   line-height: 1.6;
 }
 
@@ -97,17 +103,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: $light-gray;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $primary-color;
+  background: $primary-blue;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: $primary-dark;
+  background: $dark-blue;
 }
 
 // Utility classes
@@ -137,7 +143,7 @@ body {
   @include bounceIn;
 }
 
-// Status badges with modern design
+// Status badges with classic design
 .status-badge {
   padding: 6px 12px;
   border-radius: 20px;

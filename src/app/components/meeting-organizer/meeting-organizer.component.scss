@@ -5,42 +5,40 @@
 
   h2 {
     text-align: center;
-    color: white;
+    color: #1976d2;
     margin-bottom: 2rem;
-    font-size: 2.5rem;
-    font-weight: 300;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 2.2rem;
+    font-weight: 600;
     
     &::before {
       content: '📅';
-      margin-right: 15px;
+      margin-right: 12px;
     }
   }
 }
 
 mat-card {
-  border-radius: 20px !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e0e0e0;
+  background: #ffffff !important;
   
   mat-card-header {
-    background: linear-gradient(135deg, #6f42c1, #e83e8c);
-    color: white;
+    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+    color: #ffffff;
     padding: 1.5rem 2rem;
-    border-radius: 20px 20px 0 0;
+    border-radius: 12px 12px 0 0;
     
     mat-card-title {
-      font-size: 1.5rem;
-      font-weight: 500;
+      font-size: 1.4rem;
+      font-weight: 600;
       display: flex;
       align-items: center;
       
       &::before {
         content: '➕';
-        margin-right: 12px;
-        font-size: 1.8rem;
+        margin-right: 10px;
+        font-size: 1.6rem;
       }
     }
   }
@@ -59,20 +57,21 @@ mat-card {
     padding: 14px 32px;
     font-size: 1.1rem;
     border-radius: 25px;
-    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
-    color: white;
+    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+    color: #ffffff;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+    font-weight: 600;
     
     &:hover:not(:disabled) {
       transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(44, 85, 48, 0.4);
+      box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
     }
     
     &:disabled {
-      background: #6c757d;
+      background: #757575;
       cursor: not-allowed;
       transform: none;
       box-shadow: none;

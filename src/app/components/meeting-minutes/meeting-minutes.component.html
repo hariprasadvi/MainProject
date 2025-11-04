@@ -1,17 +1,16 @@
 <div class="meeting-minutes-container">
-  <h2>Meeting Minutes Generator</h2>
+  <h2>{{ translations().MEETING_MINUTES_GENERATOR }}</h2>
   
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Record Meeting</mat-card-title>
+      <mat-card-title>{{ translations().RECORD_MEETING }}</mat-card-title>
     </mat-card-header>
     
     <mat-card-content>
-      <!-- Fixed Select Field -->
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Select Meeting</mat-label>
+        <mat-label>{{ translations().SELECT_MEETING }}</mat-label>
         <mat-select [(value)]="selectedMeeting" (selectionChange)="onMeetingSelect()">
-          <mat-option value="">-- Select a meeting --</mat-option>
+          <mat-option value="">-- {{ translations().SELECT_MEETING }} --</mat-option>
           @for (meeting of meetings; track meeting.id) {
             <mat-option [value]="meeting.id">
               {{ meeting.title }} - {{ meeting.date | date:'mediumDate' }}
@@ -19,27 +18,26 @@
           }
         </mat-select>
         @if (!selectedMeeting) {
-          <mat-hint>Choose a meeting to record or generate minutes</mat-hint>
+          <mat-hint>{{ translations().SELECT_MEETING_HINT }}</mat-hint>
         }
       </mat-form-field>
 
-      <!-- Meeting Details (shown when meeting is selected) -->
       @if (selectedMeeting && selectedMeetingDetails) {
         <div class="meeting-details">
-          <h3>Meeting Details</h3>
+          <h3>{{ translations().MEETING_DETAILS }}</h3>
           <div class="details-grid">
             <div class="detail-item">
-              <strong>Title:</strong> {{ selectedMeetingDetails.title }}
+              <strong>{{ translations().TITLE }}:</strong> {{ selectedMeetingDetails.title }}
             </div>
             <div class="detail-item">
-              <strong>Date:</strong> {{ selectedMeetingDetails.date | date:'fullDate' }}
+              <strong>{{ translations().DATE }}:</strong> {{ selectedMeetingDetails.date | date:'fullDate' }}
             </div>
             <div class="detail-item">
-              <strong>Location:</strong> {{ selectedMeetingDetails.location }}
+              <strong>{{ translations().LOCATION }}:</strong> {{ selectedMeetingDetails.location }}
             </div>
             @if (selectedMeetingDetails.description) {
               <div class="detail-item full-width">
-                <strong>Description:</strong> {{ selectedMeetingDetails.description }}
+                <strong>{{ translations().DESCRIPTION }}:</strong> {{ selectedMeetingDetails.description }}
               </div>
             }
           </div>
@@ -55,7 +53,7 @@
           [class.recording]="isRecording"
           class="record-btn">
           <mat-icon>{{ isRecording ? 'stop' : 'fiber_manual_record' }}</mat-icon>
-          {{ isRecording ? 'Stop Recording' : 'Start Recording' }}
+          {{ isRecording ? translations().STOP_RECORDING : translations().START_RECORDING }}
         </button>
         
         <button 
@@ -65,7 +63,7 @@
           [disabled]="!selectedMeeting"
           class="generate-btn">
           <mat-icon>summarize</mat-icon>
-          Generate Minutes
+          {{ translations().GENERATE_MINUTES }}
         </button>
 
         <button 
@@ -74,31 +72,30 @@
           (click)="clearSelection()"
           class="clear-btn">
           <mat-icon>clear</mat-icon>
-          Clear
+          {{ translations().CLEAR }}
         </button>
       </div>
 
-      <!-- Recording Status -->
       @if (isRecording) {
         <div class="recording-status">
           <mat-progress-spinner diameter="30" mode="indeterminate"></mat-progress-spinner>
-          <span>Recording in progress... {{ recordingTime }}s</span>
+          <span>{{ translations().RECORDING_IN_PROGRESS }} {{ recordingTime }}s</span>
         </div>
       }
 
       @if (transcript) {
         <div class="results-section">
           <div class="section-header">
-            <h3>Meeting Transcript</h3>
-            <button mat-icon-button (click)="copyToClipboard(transcript)" matTooltip="Copy transcript">
+            <h3>{{ translations().MEETING_TRANSCRIPT }}</h3>
+            <button mat-icon-button (click)="copyToClipboard(transcript)" [matTooltip]="translations().COPY_TRANSCRIPT">
               <mat-icon>content_copy</mat-icon>
             </button>
           </div>
           <div class="transcript-box">{{ transcript }}</div>
           
           <div class="section-header">
-            <h3>Meeting Summary</h3>
-            <button mat-icon-button (click)="copyToClipboard(summary)" matTooltip="Copy summary">
+            <h3>{{ translations().MEETING_SUMMARY }}</h3>
+            <button mat-icon-button (click)="copyToClipboard(summary)" [matTooltip]="translations().COPY_SUMMARY">
               <mat-icon>content_copy</mat-icon>
             </button>
           </div>
@@ -107,25 +104,24 @@
           <div class="action-buttons">
             <button mat-stroked-button color="primary" (click)="downloadTranscript()">
               <mat-icon>download</mat-icon>
-              Download Transcript
+              {{ translations().DOWNLOAD_TRANSCRIPT }}
             </button>
             <button mat-stroked-button color="primary" (click)="downloadSummary()">
               <mat-icon>download</mat-icon>
-              Download Summary
+              {{ translations().DOWNLOAD_SUMMARY }}
             </button>
           </div>
         </div>
       }
 
-      <!-- Sample meetings if empty -->
       @if (meetings.length === 0) {
         <div class="no-meetings">
           <mat-icon>event_busy</mat-icon>
-          <h3>No Meetings Available</h3>
-          <p>Schedule meetings first to use the minutes generator</p>
+          <h3>{{ translations().NO_MEETINGS_AVAILABLE }}</h3>
+          <p>{{ translations().SCHEDULE_MEETING_FIRST }}</p>
           <button mat-raised-button color="primary" routerLink="/meetings">
             <mat-icon>add</mat-icon>
-            Schedule a Meeting
+            {{ translations().SCHEDULE_MEETING }}
           </button>
         </div>
       }

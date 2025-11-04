@@ -1,5 +1,5 @@
 <div class="reports-container">
-  <h2>Reports & Analytics</h2>
+  <h2>{{ translations().REPORTS_ANALYTICS }}</h2>
   
   <div class="reports-grid">
     @for (report of reportTypes; track report.type) {
@@ -7,19 +7,19 @@
         <mat-card-header>
           <mat-card-title>
             <mat-icon>{{ report.icon }}</mat-icon>
-            {{ report.title }}
+            {{ getTranslation(report.title) }}
           </mat-card-title>
         </mat-card-header>
         
         <mat-card-content>
-          <p>{{ report.description }}</p>
+          <p>{{ getTranslation(report.description) }}</p>
         </mat-card-content>
         
         <mat-card-actions>
           <button mat-raised-button 
                   color="primary" 
                   (click)="generateReport(report.type)">
-            Generate Report
+            {{ translations().GENERATE_REPORT }}
           </button>
         </mat-card-actions>
       </mat-card>

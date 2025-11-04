@@ -9,6 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
 import { ApiService } from '../../services/api.service';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-meeting-organizer',
@@ -29,6 +30,9 @@ import { ApiService } from '../../services/api.service';
 export class MeetingOrganizerComponent {
   private fb = inject(FormBuilder);
   private apiService = inject(ApiService);
+  private translationService = inject(TranslationService);
+
+  translations = this.translationService.translations$;
 
   meetingForm: FormGroup;
 

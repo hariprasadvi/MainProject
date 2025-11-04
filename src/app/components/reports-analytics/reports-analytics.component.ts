@@ -1,9 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+
+import { TranslationService } from '../../services/translation.service';
+
+interface ReportType {
+  title: string;
+  description: string;
+  icon: string;
+  type: string;
+}
 
 @Component({
   selector: 'app-reports-analytics',
@@ -19,28 +28,32 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './reports-analytics.component.scss'
 })
 export class ReportsAnalyticsComponent {
-  reportTypes = [
+  private translationService = inject(TranslationService);
+
+  translations = this.translationService.translations$;
+
+  reportTypes: ReportType[] = [
     {
-      title: 'Meeting Reports',
-      description: 'Generate meeting attendance and minutes reports',
+      title: 'MEETING_REPORTS',
+      description: 'MEETING_REPORTS_DESC',
       icon: 'event',
       type: 'meeting'
     },
     {
-      title: 'Loan Reports',
-      description: 'View loan applications and status reports',
+      title: 'LOAN_REPORTS',
+      description: 'LOAN_REPORTS_DESC',
       icon: 'account_balance',
       type: 'loan'
     },
     {
-      title: 'Attendance Reports',
-      description: 'Generate member attendance statistics',
+      title: 'ATTENDANCE_REPORTS',
+      description: 'ATTENDANCE_REPORTS_DESC',
       icon: 'bar_chart',
       type: 'attendance'
     },
     {
-      title: 'Financial Reports',
-      description: 'Financial summaries and analytics',
+      title: 'FINANCIAL_REPORTS',
+      description: 'FINANCIAL_REPORTS_DESC',
       icon: 'pie_chart',
       type: 'financial'
     }
@@ -49,5 +62,10 @@ export class ReportsAnalyticsComponent {
   generateReport(reportType: string) {
     alert(`Generating ${reportType} report...`);
     // Implement report generation logic
+  }
+
+  // Add the missing getTranslation method
+  getTranslation(key: string): string {
+    return (this.translations() as any)[key] || key;
   }
 }
