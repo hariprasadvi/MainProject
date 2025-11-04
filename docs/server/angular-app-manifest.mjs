@@ -23,7 +23,7 @@ export default {
   {
     "renderMode": 2,
     "preload": [
-      "chunk-X2SX3IOT.js",
+      "chunk-Z2P2YCFN.js",
       "chunk-TW3OOXOV.js",
       "chunk-VQG7Z22H.js",
       "chunk-CQIZBEXG.js",
@@ -56,7 +56,7 @@ export default {
   {
     "renderMode": 2,
     "preload": [
-      "chunk-CEU7WXXP.js",
+      "chunk-HFPKUM4P.js",
       "chunk-OZIAXCCM.js"
     ],
     "route": "/MainProject/reports"
@@ -69,13 +69,13 @@ export default {
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 91996, hash: '9daa4c21c658e918f3dd62fa611e19e9daf39f06819293067da7031d88d7117d', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 38282, hash: 'df53977ab0361884da5a14ab6bed16d4d1c4f5e1f230ff49f2373a9b33fb68d5', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'attendance/index.html': {size: 160757, hash: '4f7312a7540e7c1eaf02efa7f0a0d87d0e67b919c01e9d631654cd084901d2d0', text: () => import('./assets-chunks/attendance_index_html.mjs').then(m => m.default)},
-    'meeting-minutes/index.html': {size: 211978, hash: '734a9a1e837f19f9085c80c38b7d9432d14704d05b45f72fb87c28714fcf698f', text: () => import('./assets-chunks/meeting-minutes_index_html.mjs').then(m => m.default)},
-    'reports/index.html': {size: 171740, hash: '2e7a946081e6d427bca7e63bef5eb41754fed32c0515f7e0099486fd29d623ef', text: () => import('./assets-chunks/reports_index_html.mjs').then(m => m.default)},
-    'meetings/index.html': {size: 199394, hash: 'fa31343aaadc05765fd2644cb33da6d18ef7de783c1b588b82d3eb7987314446', text: () => import('./assets-chunks/meetings_index_html.mjs').then(m => m.default)},
-    'loans/index.html': {size: 214732, hash: '46687408a6845c38c6ebfbe22fdd9a24931c956a5eff92a7a4084a9af141d779', text: () => import('./assets-chunks/loans_index_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 91996, hash: '0b3cd11b59d1c8c57a5474c271c41b7f3b23bcf024b92e2b468aca1bd10c9507', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 38282, hash: 'f44a9fe533d74e85d667b178172901451d017341e0ade942883b3e2d79777634', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'attendance/index.html': {size: 160757, hash: '55462a05993ac71ad93ce7a31cbbff8d822bfc301a75fb43b80cf96d9d989e4c', text: () => import('./assets-chunks/attendance_index_html.mjs').then(m => m.default)},
+    'meeting-minutes/index.html': {size: 211978, hash: '6141f85bd0233c4c677ad7501792520966e81690225c0e9463cc58e252617516', text: () => import('./assets-chunks/meeting-minutes_index_html.mjs').then(m => m.default)},
+    'meetings/index.html': {size: 199394, hash: '49f832b2c491d88d0d384a7151569a67f3d93731b36b1335fec77ac0d7a25fa4', text: () => import('./assets-chunks/meetings_index_html.mjs').then(m => m.default)},
+    'reports/index.html': {size: 171740, hash: '0ca426b1a4f6a2bddf17ff5c2331a0829a75d1db26cb65b2946328411921e94c', text: () => import('./assets-chunks/reports_index_html.mjs').then(m => m.default)},
+    'loans/index.html': {size: 214732, hash: 'faa305c112ea08271b5632761ff5c0d0292a965f4f30901c0b37b3d038ecf333', text: () => import('./assets-chunks/loans_index_html.mjs').then(m => m.default)},
     'styles-HQECS6ST.css': {size: 97014, hash: 'ED6nmX5QSUY', text: () => import('./assets-chunks/styles-HQECS6ST_css.mjs').then(m => m.default)}
   },
 };
